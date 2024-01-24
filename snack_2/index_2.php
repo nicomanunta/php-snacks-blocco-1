@@ -1,8 +1,32 @@
 <?php
-    $name = $_GET ["nome"];
-    $mail = $_GET ["email"];
-    $age = $_GET ["età"];
-?>
+if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['età'])) {
+    $nome = $_GET['nome'];
+    $email = $_GET['email'];
+    $age = $_GET['età'];
+
+  
+}
+
+    // Verifica lunghezza del nome
+//     if (strlen($name) > 3) {
+//         // Verifica presenza di punto e chiocciola nella mail
+//         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+//             // Verifica che "age" sia un numero
+//             if (is_numeric($age)) {
+//                 echo "Accesso riuscito";
+//             } else {
+//                 echo "Accesso negato: L'età deve essere un numero.";
+//             }
+//         } else {
+//             echo "Accesso negato: Indirizzo email non valido.";
+//         }
+//     } else {
+//         echo "Accesso negato: Il nome deve essere lungo almeno 3 caratteri.";
+//     }
+// } else {
+//     echo "Accesso negato: Tutti i campi sono obbligatori.";
+// }
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +43,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="index_2.php" method="GET">
+                <form action="./index_2.php" method="GET">
                     <div class="row">
                         <div class="col-4">
                             <label for="exampleFormControlInput1" class="form-label">Nome</label>
@@ -41,5 +65,11 @@
             </div>
         </div>
     </div>
+   <?php if (strlen($nome) > 3 && filter_var($email, FILTER_VALIDATE_EMAIL) && is_numeric($age)  ) {
+        echo "Accesso riuscito";
+    } else {
+        echo "Accesso negato";
+    }
+    ?>
 </body>
 </html>
