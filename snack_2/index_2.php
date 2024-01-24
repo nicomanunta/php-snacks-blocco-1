@@ -1,31 +1,13 @@
 <?php
-if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['età'])) {
+$nome = ""; 
+if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['eta'])) {
     $nome = $_GET['nome'];
     $email = $_GET['email'];
-    $age = $_GET['età'];
+    $age = $_GET['eta'];
 
   
 }
 
-    // Verifica lunghezza del nome
-//     if (strlen($name) > 3) {
-//         // Verifica presenza di punto e chiocciola nella mail
-//         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-//             // Verifica che "age" sia un numero
-//             if (is_numeric($age)) {
-//                 echo "Accesso riuscito";
-//             } else {
-//                 echo "Accesso negato: L'età deve essere un numero.";
-//             }
-//         } else {
-//             echo "Accesso negato: Indirizzo email non valido.";
-//         }
-//     } else {
-//         echo "Accesso negato: Il nome deve essere lungo almeno 3 caratteri.";
-//     }
-// } else {
-//     echo "Accesso negato: Tutti i campi sono obbligatori.";
-// }
 ?> 
 
 <!DOCTYPE html>
@@ -55,7 +37,7 @@ if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['età'])) {
                         </div>
                         <div class="col-4">
                             <label for="exampleFormControlInput1" class="form-label">Età</label>
-                            <input type="number" class="form-control" id="età" placeholder="Età" name="età">
+                            <input type="number" class="form-control" id="eta" placeholder="Eta" name="eta">
                         </div>
                         <div class=" col-12 mt-4 ">
                             <button type="submit" class="btn btn-success">Invia</button>
@@ -65,11 +47,14 @@ if (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['età'])) {
             </div>
         </div>
     </div>
-   <?php if (strlen($nome) > 3 && filter_var($email, FILTER_VALIDATE_EMAIL) && is_numeric($age)  ) {
-        echo "Accesso riuscito";
-    } else {
-        echo "Accesso negato";
-    }
+   <?php
+   if (count($_GET) > 0){ 
+       if (strlen($nome) > 3 && filter_var($email, FILTER_VALIDATE_EMAIL) && is_numeric($age)  ) { ?>
+        <div class="m-5"><?php echo "Accesso riuscito"; ?></div>
+        <?php } else { ?>
+            <div class="m-5"><?php echo "Accesso negato"; ?></div>
+            <?php }
+   }
     ?>
 </body>
 </html>
