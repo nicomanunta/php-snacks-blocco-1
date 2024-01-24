@@ -69,7 +69,7 @@
             <li>
                 <?php echo $partite["casa"] ." - ". $partite["ospiti"] ." | ". $partite["punteggio_casa"] ."-". $partite["punteggio_ospiti"];?>
             </li>
-        <?php}?>
+        <?php } ?>
     </ul>
 </body>
 </html>
